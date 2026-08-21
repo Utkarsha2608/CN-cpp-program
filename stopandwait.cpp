@@ -1,4 +1,6 @@
 #include <iostream>
+#include <thread>
+#include <chrono>
 using namespace std;
 
 int main()
@@ -11,12 +13,21 @@ int main()
     for(int i = 1; i <= n; i++)
     {
         cout << "\nSender: Sending Frame " << i;
+
+        cout << "\nTimer started...";
+
+        this_thread::sleep_for(chrono::seconds(1));
+
         cout << "\nReceiver: Frame " << i << " received";
         cout << "\nReceiver: Sending ACK " << i;
+
         cout << "\nSender: ACK " << i << " received";
+        cout << "\nTimer stopped.";
+
+        cout << "\n";
     }
 
-    cout << "\n\nAll frames transmitted successfully.";
+    cout << "\nAll frames transmitted successfully.";
 
     return 0;
 }
